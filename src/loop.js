@@ -1,18 +1,21 @@
-(function() {
+window.onload = (function() {
 
   'use strict';
 
 function gameLoop () {
-    window.requestAnimationFrame(gameLoop);
+    
+    window.canvas.ctx.clearRect(0, 0, window.canvas.width, window.canvas.height);
     window.goomba.render();
     window.goomba.moveX();
     window.goomba.moveY();
     window.goomba.collisionDetection();
+    window.mario.render();
+    window.mario.moveX();
+    window.mario.moveY();
+    window.mario.collisionDetection();
+    window.requestAnimationFrame(gameLoop);
 }
 
-// goomba_tilemap.addEventListener('load', gameLoop);
-for (let i = 0; i < 1000; i++ ) {
   gameLoop();
-}
 
 }());
